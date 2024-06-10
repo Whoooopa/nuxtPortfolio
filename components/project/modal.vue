@@ -20,7 +20,7 @@
               <ClientOnly>
                 <div class="lg:w-[35rem] lg:h-64 relative">
                   <iframe id="player" type="text/html" :class="'w-full h-full'"
-                  :src="`http://www.youtube.com/embed/${demo}?enablejsapi=1`"
+                  :src="`https://www.youtube.com/embed/${demo}?enablejsapi=1`"
                   frameborder="0"
                   class="rounded-md"
                   allowfullscreen></iframe>
