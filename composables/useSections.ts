@@ -47,7 +47,7 @@ export function useSections() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionName = entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1);
-             handleActive(sectionName);
+            handleActive(sectionName);
 
             if (sectionName === 'Skills' && !skillsAnimated.value) {
               skillsAnimated.value = true;
@@ -55,7 +55,7 @@ export function useSections() {
           }
         });
       },
-      { threshold: 0.4 } // Adjust threshold as needed
+      { threshold: 0.2 } // Adjust threshold as needed
     );
 
     sections.forEach((section) => {
