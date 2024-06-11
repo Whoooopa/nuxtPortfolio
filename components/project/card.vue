@@ -77,7 +77,7 @@ const nerdOpen = ref(false);
 
 </script>
 
-<style>
+<style scoped>
 .tag {
     padding: 0.5rem 1rem;
     border-radius: 0.375rem; /* Rounded-md */
@@ -85,5 +85,13 @@ const nerdOpen = ref(false);
     max-width: max-content;
     white-space: nowrap;
   }
+
+.icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
 </style>
   

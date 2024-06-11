@@ -1,10 +1,13 @@
 <template>
-  <Layout :title="'Skills'">
+  <Layout :title="'Skills'" :class="'cardContainer'">
       <div class="flex flex-col md:px-10 justify-center items-center md:h-full">
         <div class="flex flex-row flex-wrap md:w-3/4 gap-5 justify-center">
-          <div v-for="skill in skills" :key="skill.name">
+          <div v-for="(skill, index) in skills" :key="skill.name">
             <UPopover>
-              <UChip size="3xl" inset>
+              <UChip size="3xl" inset
+              class="cardIn"
+              :class="{'animate': skillsAnimated }"
+              :style="skillsAnimated ? { 'animation-delay': `${Math.random() * 1}s` } : {}">
                 <UCard class="cursor-pointer shadow-md">
                   <Icon :name="skill.icon" class="w-16 h-16"/>
                   <template #footer>
@@ -85,5 +88,30 @@ const skills = [
   },
 ]
 
-const { activeSection } = useSections();
+const { activeSection, skillsAnimated } = useSections();
 </script>
+
+<style>
+@keyframes cardAppear {
+  0% {
+    transform: translateX(100vw)
+  }
+
+  100% {
+    transform: translateX(0%)
+  }
+}
+
+.cardContainer {
+  overflow: hidden;
+}
+
+.cardIn {
+  transform: translateX(100vw)
+}
+
+.animate {
+  animation: cardAppear 1s cubic-bezier(0.19, 1.17, 1, 1) forwards;
+}
+
+</style>

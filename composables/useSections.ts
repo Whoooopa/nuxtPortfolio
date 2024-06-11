@@ -22,6 +22,8 @@ export function useSections() {
     },
   ];
 
+  const skillsAnimated = ref(false);
+
   function handleActive(sectionName: string) {
     sections.forEach((section) => {
       section.selected.value = section.name === sectionName;
@@ -44,7 +46,12 @@ export function useSections() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            handleActive(entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1));
+            const sectionName = entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1);
+             handleActive(sectionName);
+
+            if (sectionName === 'Skills' && !skillsAnimated.value) {
+              skillsAnimated.value = true;
+            }
           }
         });
       },
@@ -68,6 +75,7 @@ export function useSections() {
   return {
     sections,
     activeSection,
+    skillsAnimated,
     handleActive,
     scrollToSection,
   };

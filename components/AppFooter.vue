@@ -4,10 +4,10 @@
       <div>© 2024 Gabriel Yohanes</div>
       <div class="flex flex-row gap-5">
         <a href="https://github.com/Whoooopa" target="_blank" rel="noopener noreferrer">
-          <Icon name="i-f7:logo-github" class="w-8 h-8"/>
+          <Icon name="i-f7:logo-github" class="w-8 h-8 hover:animate-bounce"/>
         </a>
         <a href="https://www.linkedin.com/in/gabriel-yohanes/" target="_blank" rel="noopener noreferrer">   
-          <Icon name="i-f7:logo-linkedin" class="w-8 h-8"/>
+          <Icon name="i-f7:logo-linkedin" class="w-8 h-8 hover:animate-bounce"/>
         </a>
       </div>
     </div>

@@ -11,8 +11,8 @@
         :img="project.img"
         :demo="project.demoID"
         :buttons="'true'" 
-        
-        :style="activeSection === 'Projects' ? { 'animation': `fadeIn 1s ease-in-out ${index * 0.2}s forwards`, 'opacity': '0'} : { 'animation': `fadeOut 1s ease-in-out ${(projects.length - index) * 0.2}s forwards`, 'opacity': '1'} "/>
+        class="opacity-5"
+        :style="activeSection === 'Projects' ? { 'animation': `fadeIn 1s ease-in-out ${index * 0.2}s both`, 'opacity': '0.1'} : { 'animation': `fadeOut 1s ease-in-out ${(projects.length - index) * 0.2}s both`, 'opacity': '1'} "/>
     </div>
 </Layout>
 </template>
@@ -53,10 +53,19 @@ const { activeSection } = useSections();
 
 @keyframes fadeIn {
     from {
-      opacity: 0;
+      opacity: 0.1;
     }
     to {
       opacity: 1;
+    }
+  }
+
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.1;
     }
   }
 </style>
