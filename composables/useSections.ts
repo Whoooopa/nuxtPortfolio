@@ -55,7 +55,7 @@ export function useSections() {
           }
         });
       },
-      { threshold: 0.2 } // Adjust threshold as needed
+      { threshold: 0.25 } // Adjust threshold as needed
     );
 
     sections.forEach((section) => {

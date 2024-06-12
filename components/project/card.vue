@@ -86,12 +86,17 @@ const nerdOpen = ref(false);
     white-space: nowrap;
   }
 
-.icon {
-  transition: transform 0.2s ease-in-out;
-}
 
-.icon:hover {
-  transform: scale(1.2);
+@media(hover: hover) and (pointer: fine) {
+
+  
+  .icon {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .icon:hover {
+    transform: scale(1.2);
+  }
 }
 </style>
   

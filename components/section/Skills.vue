@@ -4,24 +4,25 @@
         <div class="flex flex-row flex-wrap md:w-3/4 gap-5 justify-center">
           <div v-for="(skill, index) in skills" :key="skill.name">
             <UPopover>
-              <UChip size="3xl" inset
-              class="cardIn"
-              :class="{'animate': skillsAnimated }"
-              :style="skillsAnimated ? { 'animation-delay': `${Math.random() * 1}s` } : {}">
-                <UCard class="cursor-pointer shadow-md">
-                  <Icon :name="skill.icon" class="w-16 h-16"/>
-                  <template #footer>
-                    <div class="flex justify-center">
-                      {{ skill.name }}
-                    </div>
+              <div class="cardhover">
+                <UChip size="3xl" inset
+                class="cardIn"
+                :class="{'animate': skillsAnimated }"
+                :style="skillsAnimated ? { '--delay': `${Math.random() * 2}s` } : {}">
+                  <UCard class="cursor-pointer shadow-md">
+                    <Icon :name="skill.icon" class="w-16 h-16"/>
+                    <template #footer>
+                      <div class="flex justify-center">
+                        {{ skill.name }}
+                      </div>
+                    </template>
+                  </UCard>
+    
+                  <template #content>
+                    <Icon name="i-material-symbols:table-rows-narrow"/>
                   </template>
-                </UCard>
-  
-                <template #content>
-                  <Icon name="i-material-symbols:table-rows-narrow"/>
-                </template>
-  
-              </UChip>
+                </UChip>
+              </div>
   
               <template #panel>
                 <div class="px-5 py-6 max-w-80 cursor-default text-balance"
@@ -30,6 +31,7 @@
                 </div>
               </template>
             </UPopover>
+
           </div>
         </div>
       </div>
@@ -102,16 +104,49 @@ const { activeSection, skillsAnimated } = useSections();
   }
 }
 
+
 .cardContainer {
   overflow: hidden;
 }
 
 .cardIn {
-  transform: translateX(100vw)
+  position: relative;
+  transform: translateX(100vw);
 }
 
 .animate {
   animation: cardAppear 1s cubic-bezier(0.19, 1.17, 1, 1) forwards;
+  animation-delay: var(--delay);
 }
+
+
+.cardIn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.375rem;
+  background: rgba(255, 255, 255, 0.4); 
+  z-index: -1; 
+  transform: translateX(100vw); 
+}
+
+.animate::before {
+  animation: cardAppear 0.6s cubic-bezier(0.19, 1, 1, 1) forwards;
+  animation-delay: var(--delay);
+}
+
+@media(hover: hover) and (pointer: fine) {
+  
+  .cardhover {
+    transition: transform 0.3s ease-in-out;
+  }
+  .cardhover:hover {
+    transform: scale(1.05) rotate(3deg);
+  }
+}
+
 
 </style>
