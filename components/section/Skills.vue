@@ -1,6 +1,6 @@
 <template>
   <Layout :title="'Skills'" :class="'cardContainer'">
-      <div class="flex flex-col md:px-10 justify-center items-center md:h-full">
+      <div class="flex flex-col md:px-10 items-center">
         <div class="flex flex-row flex-wrap md:w-3/4 gap-5 justify-center">
           <div v-for="(skill, index) in skills" :key="skill.name">
             <UPopover>
